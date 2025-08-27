@@ -1,0 +1,26 @@
+package Factories;
+
+import ConsoleViews.SistemaClientes.VistaClientesConsola;
+import Controllers.SistemaClientesController;
+import Fachada.FachadaClientes;
+import Fachada.Interfaces.SistemaClientesFacade;
+import Interfaces.ClientesRepository;
+import Repositories.ClientesRepositoryImpl;
+
+public class SistemaClientesFactory {
+    public static ClientesRepository createClientesRepository() {
+        return new ClientesRepositoryImpl();
+    }
+
+    public static SistemaClientesFacade createClienteFacade() {
+        return new FachadaClientes(createClientesRepository());
+    }
+
+    public static SistemaClientesController createClienteController() {
+        return new SistemaClientesController(createClienteFacade());
+    }
+
+    public static VistaClientesConsola createVistaConsola() {
+        return new VistaClientesConsola(createClienteController());
+    }
+}

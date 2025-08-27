@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Fachada" />
+        <module name="App2ComponentePDF" />
+        <module name="App2" />
+        <module name="Controlador" />
+        <module name="App2ComponentePDFAdaptado" />
+        <module name="App2ComponenteTextoPlano" />
+        <module name="Inicio" />
+        <module name="FabricaObjetos" />
+        <module name="SistemaClientes" />
+        <module name="VistaConsola" />
+        <module name="App2Interfaces" />
+        <module name="DTO" />
+        <module name="App2ComponenteHTML" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

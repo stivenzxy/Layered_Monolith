@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Controlador/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Controlador/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/DTO/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/DTO/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/FabricaObjetos/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/FabricaObjetos/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Fachada/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Fachada/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GestorDocumentos/App2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GestorDocumentos/App2/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GestorDocumentos/App2ComponenteHTML/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GestorDocumentos/App2ComponenteHTML/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GestorDocumentos/App2ComponentePDF/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GestorDocumentos/App2ComponentePDF/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GestorDocumentos/App2ComponentePDFAdaptado/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GestorDocumentos/App2ComponentePDFAdaptado/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GestorDocumentos/App2ComponenteTextoPlano/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GestorDocumentos/App2ComponenteTextoPlano/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GestorDocumentos/App2Interfaces/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GestorDocumentos/App2Interfaces/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GestorDocumentos/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GestorDocumentos/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Inicio/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Inicio/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SistemaClientes/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SistemaClientes/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/VistaConsola/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/VistaConsola/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
