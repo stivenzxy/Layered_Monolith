@@ -21,5 +21,6 @@
         <module>Controlador</module>
         <module>VistaConsola</module>
         <module>Inicio</module>
+        <module>VistaEscritorio</module>
     </modules>
 </project>

@@ -11,7 +11,6 @@ import java.util.Scanner;
 
 public class VistaClientesConsola {
     private final Scanner scanner;
-    //private final SistemaClientesController controller;
     private final Map<Integer, MenuAction> actions = new HashMap<>();
 
     public VistaClientesConsola(SistemaClientesController controller) {

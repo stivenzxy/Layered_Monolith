@@ -2,6 +2,7 @@ package Factories;
 
 import ConsoleViews.SistemaClientes.VistaClientesConsola;
 import Controllers.SistemaClientesController;
+import DesktopViews.SistemaClientes.VistaClientesEscritorio;
 import Fachada.FachadaClientes;
 import Fachada.Interfaces.SistemaClientesFacade;
 import Interfaces.ClientesRepository;
@@ -20,7 +21,11 @@ public class SistemaClientesFactory {
         return new SistemaClientesController(createClienteFacade());
     }
 
-    public static VistaClientesConsola createVistaConsola() {
+    public static VistaClientesConsola createClientesConsoleView() {
         return new VistaClientesConsola(createClienteController());
+    }
+
+    public static VistaClientesEscritorio createClientesDesktopView() {
+        return new VistaClientesEscritorio(createClienteController());
     }
 }

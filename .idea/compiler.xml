@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Fachada" />
         <module name="App2ComponentePDF" />
+        <module name="VistaEscritorio" />
         <module name="App2" />
         <module name="Controlador" />
         <module name="App2ComponentePDFAdaptado" />
