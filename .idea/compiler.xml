@@ -10,6 +10,7 @@
         <module name="App2ComponentePDF" />
         <module name="VistaEscritorio" />
         <module name="App2" />
+        <module name="SistemaBiblioteca" />
         <module name="Controlador" />
         <module name="App2ComponentePDFAdaptado" />
         <module name="App2ComponenteTextoPlano" />

@@ -22,5 +22,6 @@
         <module>VistaConsola</module>
         <module>Inicio</module>
         <module>VistaEscritorio</module>
+        <module>SistemaBiblioteca</module>
     </modules>
 </project>
