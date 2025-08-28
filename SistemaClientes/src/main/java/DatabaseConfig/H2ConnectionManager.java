@@ -63,7 +63,7 @@ public class H2ConnectionManager {
 
             try (Connection conn = this.getConnection(); Statement stmt = conn.createStatement()) {
                 stmt.execute(scriptSql);
-                System.out.println("Base de datos H2 inicializada correctamente.");
+                //System.out.println("Base de datos H2 inicializada correctamente.");
             }
 
         } catch (Exception e) {

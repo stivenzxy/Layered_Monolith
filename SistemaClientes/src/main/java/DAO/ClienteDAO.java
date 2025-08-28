@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public class ClienteDAO {
 
-    public void crear(Cliente cliente){
+    public String crear(Cliente cliente){
         String sql = "INSERT INTO clientes (numero_documento, nombres, apellidos, email) VALUES (?, ?, ?, ?)";
 
         try (Connection conn = H2ConnectionManager.obtenerInstancia().getConnection();
@@ -34,10 +34,13 @@ public class ClienteDAO {
                     throw new SQLException("La creación del cliente falló, no se pudo obtener el ID.");
                 }
             }
+
+            return cliente.getNombres();
+
         } catch (SQLException e) {
             System.err.println("Error al crear el cliente: " + e.getMessage());
+            return null;
         }
-
     }
 
     public String actualizar(Cliente cliente) {

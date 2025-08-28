@@ -16,8 +16,8 @@ public class ClientesRepositoryImpl implements ClientesRepository {
     }
 
     @Override
-    public void crear(Cliente cliente) {
-        clienteDAO.crear(cliente);
+    public String crear(Cliente cliente) {
+        return clienteDAO.crear(cliente);
     }
 
     @Override

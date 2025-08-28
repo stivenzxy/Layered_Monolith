@@ -46,4 +46,15 @@ public class ClienteDTO {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Override
+    public String toString() {
+        return "--- Cliente ---" +
+                "\n\tID:              " + id +
+                "\n\tNro. Documento:  " + numeroDocumento +
+                "\n\tNombres:         " + nombres +
+                "\n\tApellidos:       " + apellidos +
+                "\n\tEmail:           " + email +
+                "\n---------------";
+    }
 }

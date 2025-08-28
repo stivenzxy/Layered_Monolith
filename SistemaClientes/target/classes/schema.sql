@@ -7,13 +7,13 @@ CREATE TABLE IF NOT EXISTS clientes (
 );
 
 MERGE INTO clientes (numero_documento, nombres, apellidos, email)
-    KEY(email)
+    KEY(numero_documento)
     VALUES ('10203040', 'Ana', 'García', 'ana.garcia@example.com');
 
 MERGE INTO clientes (numero_documento, nombres, apellidos, email)
-    KEY(email)
+    KEY(numero_documento)
     VALUES ('50607080', 'Carlos', 'Pérez', 'carlos.perez@example.com');
 
 MERGE INTO clientes (numero_documento, nombres, apellidos, email)
-    KEY(email)
+    KEY(numero_documento)
     VALUES ('90102030', 'Laura', 'Martínez', 'laura.martinez@example.com');

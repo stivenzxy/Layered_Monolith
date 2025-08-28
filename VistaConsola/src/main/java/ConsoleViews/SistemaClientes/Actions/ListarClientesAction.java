@@ -1,4 +1,4 @@
-package ConsoleViews.SistemaClientes.MenuActions;
+package ConsoleViews.SistemaClientes.Actions;
 
 import ConsoleViews.MenuAction;
 import Controllers.SistemaClientesController;

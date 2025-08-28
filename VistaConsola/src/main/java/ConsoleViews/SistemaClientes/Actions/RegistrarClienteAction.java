@@ -1,4 +1,4 @@
-package ConsoleViews.SistemaClientes.MenuActions;
+package ConsoleViews.SistemaClientes.Actions;
 
 import ConsoleViews.MenuAction;
 import Controllers.SistemaClientesController;
@@ -43,8 +43,8 @@ public class RegistrarClienteAction implements MenuAction {
         nuevoClienteDto.setEmail(email);
 
         try {
-            controlador.crearCliente(nuevoClienteDto);
-            System.out.println("\nCliente registrado exitosamente!.");
+            String nuevoCliente = controlador.guardarCliente(nuevoClienteDto);
+            System.out.println("\nCliente " + nuevoCliente + " registrado exitosamente!.");
         } catch (Exception e) {
             System.out.println("\nERROR AL REGISTRAR: " + e.getMessage());
         }

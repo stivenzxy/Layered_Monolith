@@ -34,15 +34,36 @@ public class FachadaClientes implements SistemaClientesFacade {
     }
 
     @Override
-    public void guardarCliente(ClienteDTO clienteDTO) {
-        Cliente cliente = ClienteMapper.dtoToEntity(clienteDTO);
-        repository.crear(cliente);
+    public String guardarCliente(ClienteDTO clienteDTO) {
+        if (clienteDTO.getId() == null) {
+            Cliente nuevoCliente = ClienteMapper.dtoToEntity(clienteDTO);
+            return repository.crear(nuevoCliente);
+        } else {
+           return actualizarCliente(clienteDTO);
+        }
     }
 
-    @Override
-    public String actualizarCliente(ClienteDTO clienteDTO) {
-        Cliente cliente = ClienteMapper.dtoToEntity(clienteDTO);
-        return repository.actualizar(cliente);
+    private String actualizarCliente(ClienteDTO clienteActualizadoDTO) {
+        if (clienteActualizadoDTO.getId() == null) {
+            throw new IllegalArgumentException("Para actualizar, el cliente debe tener un ID.");
+        }
+
+        Cliente entidadExistente = repository.obtenerPorId(clienteActualizadoDTO.getId())
+                .orElseThrow(() -> new RuntimeException("No se encontró el cliente con ID: " + clienteActualizadoDTO.getId()));
+
+        if (clienteActualizadoDTO.getNumeroDocumento() != null && !clienteActualizadoDTO.getNumeroDocumento().trim().isEmpty()) {
+            entidadExistente.setNumeroDocumento(clienteActualizadoDTO.getNumeroDocumento());
+        }
+        if (clienteActualizadoDTO.getNombres() != null && !clienteActualizadoDTO.getNombres().trim().isEmpty()) {
+            entidadExistente.setNombres(clienteActualizadoDTO.getNombres());
+        }
+        if (clienteActualizadoDTO.getApellidos() != null && !clienteActualizadoDTO.getApellidos().trim().isEmpty()) {
+            entidadExistente.setApellidos(clienteActualizadoDTO.getApellidos());
+        }
+        if (clienteActualizadoDTO.getEmail() != null && !clienteActualizadoDTO.getEmail().trim().isEmpty()) {
+            entidadExistente.setEmail(clienteActualizadoDTO.getEmail());
+        }
+        return repository.actualizar(entidadExistente);
     }
 
     @Override
