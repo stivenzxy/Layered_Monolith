@@ -1,7 +1,6 @@
 package Biblioteca.DatabaseConfig;
 
 import Biblioteca.Utils.Configuracion;
-import Biblioteca.Utils.DatabaseException;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

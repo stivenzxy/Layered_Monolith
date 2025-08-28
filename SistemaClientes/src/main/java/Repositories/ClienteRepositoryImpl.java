@@ -2,16 +2,16 @@ package Repositories;
 
 import DAO.ClienteDAO;
 import Entities.Cliente;
-import Interfaces.ClientesRepository;
+import Interfaces.ClienteRepository;
 
 import java.util.List;
 import java.util.Optional;
 
-public class ClientesRepositoryImpl implements ClientesRepository {
+public class ClienteRepositoryImpl implements ClienteRepository {
 
     private final ClienteDAO clienteDAO;
 
-    public ClientesRepositoryImpl() {
+    public ClienteRepositoryImpl() {
         clienteDAO = new ClienteDAO();
     }
 

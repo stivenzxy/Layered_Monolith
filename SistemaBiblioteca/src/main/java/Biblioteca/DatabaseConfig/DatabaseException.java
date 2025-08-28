@@ -1,4 +1,4 @@
-package Biblioteca.Utils;
+package Biblioteca.DatabaseConfig;
 
 public class DatabaseException extends RuntimeException {
     private final int statusCode;

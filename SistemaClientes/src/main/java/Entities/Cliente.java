@@ -2,10 +2,10 @@ package Entities;
 
 public class Cliente {
     private Long id;
-    public String numeroDocumento;
-    public String nombres;
-    public String apellidos;
-    public String email;
+    private String numeroDocumento;
+    private String nombres;
+    private String apellidos;
+    private String email;
 
     private Cliente(Builder builder) {
         if (builder.numeroDocumento == null || builder.numeroDocumento.trim().isEmpty()) {
