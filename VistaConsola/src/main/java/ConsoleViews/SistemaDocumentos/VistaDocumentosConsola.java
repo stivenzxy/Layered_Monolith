@@ -24,7 +24,7 @@ public class VistaDocumentosConsola {
         do {
             System.out.println("\n--- Sistema para Gestión de Documentos ---");
             System.out.println("1. Crear Documento Simple");
-            System.out.println("2. Crear Documento Extendido (con Builder)");
+            System.out.println("2. Crear Documento Extendido (con título, contenido, imagen y firma)");
             System.out.println("0. Salir");
             System.out.print("Seleccione una opción: ");
 

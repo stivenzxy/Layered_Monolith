@@ -10,9 +10,9 @@ import java.awt.*;
 public class VistaPrincipalDocumentosEscritorio extends JPanel implements DocumentosDesktopView {
     private final SistemaDocumentosController controller;
 
-    private JTextField txtFormato, txtContenido, txtTitulo, txtImagenUrl, txtFirma;
     private JComboBox<String> comboFormato;
     private JTextArea txtAreaContenido;
+    private JTextField txtTitulo, txtImagenUrl, txtFirma;
     private JCheckBox chkDocumentoExtendido;
 
     private Action crearDocumentoSimpleAction;
@@ -37,7 +37,7 @@ public class VistaPrincipalDocumentosEscritorio extends JPanel implements Docume
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
         // Checkbox para documento extendido
-        chkDocumentoExtendido = new JCheckBox("Documento Extendido (con Builder)");
+        chkDocumentoExtendido = new JCheckBox("Documento Extendido (con título, contenido, imagen y firma)");
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 2;
@@ -111,11 +111,6 @@ public class VistaPrincipalDocumentosEscritorio extends JPanel implements Docume
         panelSuperior.add(panelFormulario, BorderLayout.CENTER);
         panelSuperior.add(panelBotones, BorderLayout.SOUTH);
         add(panelSuperior, BorderLayout.CENTER);
-
-        // Panel inferior para mostrar resultados
-        JPanel panelInferior = new JPanel(new BorderLayout());
-        panelInferior.setBorder(BorderFactory.createTitledBorder("Información del Documento"));
-        add(panelInferior, BorderLayout.SOUTH);
     }
 
     private void initListeners() {
@@ -140,7 +135,7 @@ public class VistaPrincipalDocumentosEscritorio extends JPanel implements Docume
         crearDocumentoExtendidoAction = new CrearDocumentoExtendidoAction(this, controller);
         limpiarFormularioAction = new LimpiarFormularioDocumentoAction(this);
         
-        // Inicialmente solo documento simple está habilitado
+        // Por defecto se habilita el documento simple
         crearDocumentoExtendidoAction.setEnabled(false);
     }
 

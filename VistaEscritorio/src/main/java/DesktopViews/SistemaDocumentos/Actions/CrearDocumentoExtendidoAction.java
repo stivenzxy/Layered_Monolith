@@ -13,7 +13,7 @@ public class CrearDocumentoExtendidoAction extends AbstractAction {
 
     public CrearDocumentoExtendidoAction(DocumentosDesktopView vista, SistemaDocumentosController controller) {
         super("Crear Documento Extendido");
-        putValue(SHORT_DESCRIPTION, "Crea un documento extendido con Builder (título, imagen, firma)");
+        putValue(SHORT_DESCRIPTION, "Crea un documento extendido con título, contenido, imagen y firma");
         this.vista = vista;
         this.controller = controller;
     }

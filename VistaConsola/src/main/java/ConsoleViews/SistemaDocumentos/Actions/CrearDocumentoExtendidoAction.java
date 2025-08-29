@@ -19,12 +19,12 @@ public class CrearDocumentoExtendidoAction implements MenuAction {
     public void execute() {
         System.out.println("\n--- Crear Documento Extendido ---");
         
-        System.out.println("Tipos de builder disponibles: pdf, html, texto");
-        System.out.print("Tipo de builder: ");
+        System.out.println("Formatos disponibles: pdf, html, texto");
+        System.out.print("Formato del documento: ");
         String tipoBuilder = scanner.nextLine().trim().toLowerCase();
         
         if (!tipoBuilder.matches("pdf|html|texto")) {
-            System.out.println("Error: Tipo no válido. Use: pdf, html o texto");
+            System.out.println("Error: Formato no válido. Use: pdf, html o texto");
             return;
         }
         
