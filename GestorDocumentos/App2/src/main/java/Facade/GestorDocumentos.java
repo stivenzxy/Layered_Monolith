@@ -8,61 +8,21 @@ import Interfaces.FabricaBuilder;
 import Interfaces.DocumentoBuilder;
 
 public class GestorDocumentos {
-    public void renderizarDocumento(String formato, String contenido) {
-        if ("pdfExtendido".equalsIgnoreCase(formato)) {
-            FabricaBuilder fabricaBuilder = ProveedorBuilderDocumento.obtenerBuilderFactory("pdf");
-            DocumentoBuilder builder = fabricaBuilder.crearBuilder();
-            Documento documento = builder
-                    .titulo("Pdf con Builder")
-                    .contenido(contenido)
-                    .imagenUrl("imagen.png")
-                    .firma("Firma del autor")
-                    .build();
-
-            documento.dibujar();
-            documento.imprimir();
-            System.out.println("--- Renderizado de PDF con Builder finalizado ---\n");
-            return;
-        }
-        
-        if ("htmlExtendido".equalsIgnoreCase(formato)) {
-            FabricaBuilder fabricaBuilder = ProveedorBuilderDocumento.obtenerBuilderFactory("html");
-            DocumentoBuilder builder = fabricaBuilder.crearBuilder();
-            Documento documento = builder
-                    .titulo("HTML con Builder")
-                    .contenido(contenido)
-                    .imagenUrl("imagen.png")
-                    .firma("Firma del autor")
-                    .build();
-
-            documento.dibujar();
-            documento.imprimir();
-            System.out.println("--- Renderizado de HTML con Builder finalizado ---\n");
-            return;
-        }
-        
-        if ("textoExtendido".equalsIgnoreCase(formato)) {
-            FabricaBuilder fabricaBuilder = ProveedorBuilderDocumento.obtenerBuilderFactory("texto");
-            DocumentoBuilder builder = fabricaBuilder.crearBuilder();
-            Documento documento = builder
-                    .titulo("Texto Plano con Builder")
-                    .contenido(contenido)
-                    .imagenUrl("imagen.png")
-                    .firma("Firma del autor")
-                    .build();
-
-            documento.dibujar();
-            documento.imprimir();
-            System.out.println("--- Renderizado de Texto Plano con Builder finalizado ---\n");
-            return;
-        }
-
+    public Documento crearDocumento(String formato, String contenido) {
         FabricaDocumento fabrica = ProveedorFabricaDocumento.obtenerFabrica(formato);
         Documento documento = fabrica.crear();
         documento.setContenido(contenido);
+        return documento;
+    }
 
-        documento.dibujar();
-        documento.imprimir();
-        System.out.println("--- Renderizado de " + formato + " finalizado ---\n");
+    public Documento crearDocumentoExtendido(String tipoBuilder, String titulo, String contenido, String imagenUrl, String firma) {
+        FabricaBuilder fabricaBuilder = ProveedorBuilderDocumento.obtenerBuilderFactory(tipoBuilder);
+        DocumentoBuilder builder = fabricaBuilder.crearBuilder();
+        return builder
+                .titulo(titulo)
+                .contenido(contenido)
+                .imagenUrl(imagenUrl)
+                .firma(firma)
+                .build();
     }
 }

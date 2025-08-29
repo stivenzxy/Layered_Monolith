@@ -1,13 +1,17 @@
 package com.monolitoPorCapas;
 
 import ConsoleViews.SistemaClientes.VistaClientesConsola;
+import ConsoleViews.SistemaDocumentos.VistaDocumentosConsola;
 
 import java.util.Scanner;
 
 public class VistaPrincipalConsola {
     private final VistaClientesConsola vistaClientes;
-    public VistaPrincipalConsola(VistaClientesConsola vistaClientes) {
+    private final VistaDocumentosConsola vistaDocumentos;
+    
+    public VistaPrincipalConsola(VistaClientesConsola vistaClientes, VistaDocumentosConsola vistaDocumentos) {
         this.vistaClientes = vistaClientes;
+        this.vistaDocumentos = vistaDocumentos;
     }
 
     public void iniciar() {
@@ -17,7 +21,7 @@ public class VistaPrincipalConsola {
         do {
             System.out.println("\n===== MENÚ PRINCIPAL (CONSOLA) =====");
             System.out.println("1. Sistema de Clientes");
-            System.out.println("2. Gestor de Documentos (No implementado)");
+            System.out.println("2. Gestor de Documentos");
             System.out.println("0. Salir de la Consola");
             System.out.print("Seleccione un módulo: ");
 
@@ -31,7 +35,8 @@ public class VistaPrincipalConsola {
                         vistaClientes.mostrarMenuPrincipal();
                         break;
                     case 2:
-                        System.out.println("Este módulo aún no está disponible.");
+                        // Llama al menú del módulo de documentos
+                        vistaDocumentos.mostrarMenuPrincipal();
                         break;
                     case 0:
                         System.out.println("Cerrando la interfaz de consola...");

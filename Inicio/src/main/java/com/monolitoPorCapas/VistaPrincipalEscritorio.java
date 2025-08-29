@@ -8,7 +8,7 @@ public class VistaPrincipalEscritorio extends JFrame {
     private JPanel contentPanel;
     private JComboBox<String> menuDropdown;
 
-    public VistaPrincipalEscritorio(JPanel clientesView) { // Recibe el panel de clientes ya creado
+    public VistaPrincipalEscritorio(JPanel clientesView, JPanel documentosView) { // Recibe ambos paneles
         setTitle("Sistema de Gestión Principal");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -17,7 +17,7 @@ public class VistaPrincipalEscritorio extends JFrame {
         // --- Dropdown de Navegación (Norte) ---
         JPanel panelMenu = new JPanel(new FlowLayout(FlowLayout.LEFT));
         panelMenu.add(new JLabel("Seleccionar Módulo:"));
-        menuDropdown = new JComboBox<>(new String[]{"Clientes", "Documentos (Próximamente)", "Reportes (Próximamente)"});
+        menuDropdown = new JComboBox<>(new String[]{"Clientes", "Documentos", "Reportes (Próximamente)"});
         panelMenu.add(menuDropdown);
 
         add(panelMenu, BorderLayout.NORTH);
@@ -26,11 +26,9 @@ public class VistaPrincipalEscritorio extends JFrame {
         cardLayout = new CardLayout();
         contentPanel = new JPanel(cardLayout);
 
-        // Agregamos el panel de clientes que recibimos
+        // Agregamos ambos paneles
         contentPanel.add(clientesView, "Clientes");
-
-        // Podríamos agregar otros paneles aquí
-        // contentPanel.add(new DocumentosView(), "Documentos");
+        contentPanel.add(documentosView, "Documentos");
 
         add(contentPanel, BorderLayout.CENTER);
 
