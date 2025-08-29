@@ -38,22 +38,6 @@ public class LectorDAO {
         }
     }
 
-    public boolean eliminarLector(Long id) {
-        String sql = "DELETE FROM lector WHERE id = ?";
-
-        try (Connection conn = MysqlConnectionManager.obtenerInstancia().getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
-            pstmt.setLong(1, id);
-            int filasAfectadas = pstmt.executeUpdate();
-            return filasAfectadas > 0;
-
-        } catch (SQLException e) {
-            System.err.println("Error al eliminar el lector: " + e.getMessage());
-            return false;
-        }
-    }
-
     public List<Lector> obtenerLectoresRegistrados() {
         String sql = "SELECT id, nombre, correo FROM lector";
         List<Lector> lectores = new ArrayList<>();

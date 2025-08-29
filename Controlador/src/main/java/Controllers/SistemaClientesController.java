@@ -1,6 +1,6 @@
 package Controllers;
 
-import DTO.ClienteDTO;
+import DTO.Cliente.ClienteDTO;
 import Fachada.Interfaces.SistemaClientesFacade;
 
 import java.util.List;

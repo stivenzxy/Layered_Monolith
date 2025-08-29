@@ -1,6 +1,6 @@
 package DatabaseConfig;
 
-import Utils.Configuracion;
+import Utils.H2Configuration;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -15,10 +15,10 @@ import java.util.stream.Collectors;
 public class H2ConnectionManager {
     private static volatile H2ConnectionManager instancia;
 
-    private static final String DRIVER = Configuracion.getPropiedad("DRIVER");
-    private static final String URL = Configuracion.getPropiedad("URL");
-    private static final String USUARIO = Configuracion.getPropiedad("USUARIO");
-    private static final String PASSWORD = Configuracion.getPropiedad("PASSWORD");
+    private static final String DRIVER = H2Configuration.getPropiedad("DRIVER");
+    private static final String URL = H2Configuration.getPropiedad("URL");
+    private static final String USUARIO = H2Configuration.getPropiedad("USUARIO");
+    private static final String PASSWORD = H2Configuration.getPropiedad("PASSWORD");
 
     private H2ConnectionManager() {
         try {
@@ -49,10 +49,10 @@ public class H2ConnectionManager {
     }
 
     private void inicializarBaseDeDatos() {
-        try (InputStream inputStream = H2ConnectionManager.class.getClassLoader().getResourceAsStream("schema.sql")) {
+        try (InputStream inputStream = H2ConnectionManager.class.getClassLoader().getResourceAsStream("H2Schema.sql")) {
 
             if (inputStream == null) {
-                throw new RuntimeException("No se pudo encontrar el archivo schema.sql en los recursos.");
+                throw new RuntimeException("No se pudo encontrar el archivo H2Schema.sql en los recursos.");
             }
 
             String scriptSql = new BufferedReader(

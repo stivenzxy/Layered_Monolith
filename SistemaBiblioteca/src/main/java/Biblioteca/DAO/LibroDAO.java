@@ -39,22 +39,6 @@ public class LibroDAO {
         }
     }
 
-    public boolean eliminarLibro(Long id) {
-        String sql = "DELETE FROM libro WHERE id = ?";
-
-        try (Connection conn = MysqlConnectionManager.obtenerInstancia().getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
-            pstmt.setLong(1, id);
-            int filasAfectadas = pstmt.executeUpdate();
-            return filasAfectadas > 0;
-
-        } catch (SQLException e) {
-            System.err.println("Error al eliminar el libro: " + e.getMessage());
-            return false;
-        }
-    }
-
     public List<Libro> obtenerLibrosRegistrados() {
         String sql = "SELECT id, titulo, autor, disponible FROM libro";
         List<Libro> libros = new ArrayList<>();

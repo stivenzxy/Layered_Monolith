@@ -1,6 +1,6 @@
 package Fachada.Mappers;
 
-import DTO.ClienteDTO;
+import DTO.Cliente.ClienteDTO;
 import Entities.Cliente;
 
 public class ClienteMapper {

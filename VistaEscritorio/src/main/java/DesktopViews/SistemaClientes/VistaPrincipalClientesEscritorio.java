@@ -1,7 +1,7 @@
 package DesktopViews.SistemaClientes;
 
 import Controllers.SistemaClientesController;
-import DTO.ClienteDTO;
+import DTO.Cliente.ClienteDTO;
 import DesktopViews.SistemaClientes.Actions.*;
 
 import javax.swing.*;

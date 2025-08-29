@@ -1,6 +1,6 @@
 package Fachada;
 
-import DTO.ClienteDTO;
+import DTO.Cliente.ClienteDTO;
 import Entities.Cliente;
 import Fachada.Interfaces.SistemaClientesFacade;
 import Fachada.Mappers.ClienteMapper;

@@ -20,11 +20,6 @@ public class LectorRepositoryImpl implements LectorRepository {
     }
 
     @Override
-    public boolean eliminarLector(Long id) {
-        return lectorDAO.eliminarLector(id);
-    }
-
-    @Override
     public List<Lector> obtenerLectoresRegistrados() {
         return lectorDAO.obtenerLectoresRegistrados();
     }

@@ -17,6 +17,12 @@
             <artifactId>Fachada</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.monolitoPorCapas</groupId>
+            <artifactId>SistemaBiblioteca</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
 </project>

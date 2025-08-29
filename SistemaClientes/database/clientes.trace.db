@@ -209,3 +209,188 @@ java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supporte
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-08-28 22:37:03.264413-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE [*]DATABASE IF NOT EXISTS biblioteca;\000aUSE biblioteca;\000a\000aCREATE TABLE IF NOT EXISTS lector (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    nombre VARCHAR(100) NOT NULL,\000a    correo VARCHAR(150) UNIQUE NOT NULL\000a);\000a\000aCREATE TABLE IF NOT EXISTS libro (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    titulo VARCHAR(200) NOT NULL,\000a    autor VARCHAR(150) NOT NULL,\000a    disponible BOOLEAN DEFAULT TRUE\000a);\000a\000aCREATE TABLE IF NOT EXISTS prestamo (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    libro_id BIGINT NOT NULL,\000a    lector_id BIGINT NOT NULL,\000a    fecha_prestamo DATE NOT NULL,\000a    fecha_devolucion DATE NULL,\000a\000a    CONSTRAINT fk_prestamo_libro FOREIGN KEY (libro_id) REFERENCES libro(id),\000a    CONSTRAINT fk_prestamo_lector FOREIGN KEY (lector_id) REFERENCES lector(id)\000a);\000a\000aINSERT IGNORE INTO lector (id, nombre, correo) VALUES\000a(1, 'Ana López', 'ana@example.com'),\000a(2, 'Carlos Pérez', 'carlos@example.com');\000a\000aINSERT IGNORE INTO libro (id, titulo, autor, disponible) VALUES\000a(1, 'Cien años de soledad', 'Gabriel García Márquez', TRUE),\000a(2, 'El Principito', 'Antoine de Saint-Exupéry', TRUE);"; se esperaba "OR REPLACE, FORCE, VIEW, MATERIALIZED, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMPORARY, TABLE, SYNONYM, UNIQUE, SPATIAL, INDEX"
+Syntax error in SQL statement "CREATE [*]DATABASE IF NOT EXISTS biblioteca;\000aUSE biblioteca;\000a\000aCREATE TABLE IF NOT EXISTS lector (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    nombre VARCHAR(100) NOT NULL,\000a    correo VARCHAR(150) UNIQUE NOT NULL\000a);\000a\000aCREATE TABLE IF NOT EXISTS libro (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    titulo VARCHAR(200) NOT NULL,\000a    autor VARCHAR(150) NOT NULL,\000a    disponible BOOLEAN DEFAULT TRUE\000a);\000a\000aCREATE TABLE IF NOT EXISTS prestamo (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    libro_id BIGINT NOT NULL,\000a    lector_id BIGINT NOT NULL,\000a    fecha_prestamo DATE NOT NULL,\000a    fecha_devolucion DATE NULL,\000a\000a    CONSTRAINT fk_prestamo_libro FOREIGN KEY (libro_id) REFERENCES libro(id),\000a    CONSTRAINT fk_prestamo_lector FOREIGN KEY (lector_id) REFERENCES lector(id)\000a);\000a\000aINSERT IGNORE INTO lector (id, nombre, correo) VALUES\000a(1, 'Ana López', 'ana@example.com'),\000a(2, 'Carlos Pérez', 'carlos@example.com');\000a\000aINSERT IGNORE INTO libro (id, titulo, autor, disponible) VALUES\000a(1, 'Cien años de soledad', 'Gabriel García Márquez', TRUE),\000a(2, 'El Principito', 'Antoine de Saint-Exupéry', TRUE);"; expected "OR REPLACE, FORCE, VIEW, MATERIALIZED, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMPORARY, TABLE, SYNONYM, UNIQUE, SPATIAL, INDEX"; SQL statement:
+CREATE DATABASE IF NOT EXISTS biblioteca;
+USE biblioteca;
+
+CREATE TABLE IF NOT EXISTS lector (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    correo VARCHAR(150) UNIQUE NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS libro (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(200) NOT NULL,
+    autor VARCHAR(150) NOT NULL,
+    disponible BOOLEAN DEFAULT TRUE
+);
+
+CREATE TABLE IF NOT EXISTS prestamo (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    libro_id BIGINT NOT NULL,
+    lector_id BIGINT NOT NULL,
+    fecha_prestamo DATE NOT NULL,
+    fecha_devolucion DATE NULL,
+
+    CONSTRAINT fk_prestamo_libro FOREIGN KEY (libro_id) REFERENCES libro(id),
+    CONSTRAINT fk_prestamo_lector FOREIGN KEY (lector_id) REFERENCES lector(id)
+);
+
+INSERT IGNORE INTO lector (id, nombre, correo) VALUES
+(1, 'Ana López', 'ana@example.com'),
+(2, 'Carlos Pérez', 'carlos@example.com');
+
+INSERT IGNORE INTO libro (id, titulo, autor, disponible) VALUES
+(1, 'Cien años de soledad', 'Gabriel García Márquez', TRUE),
+(2, 'El Principito', 'Antoine de Saint-Exupéry', TRUE); [42001-230]
+2025-08-28 22:38:14.023611-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE [*]DATABASE IF NOT EXISTS biblioteca;\000aUSE biblioteca;\000a\000aCREATE TABLE IF NOT EXISTS lector (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    nombre VARCHAR(100) NOT NULL,\000a    correo VARCHAR(150) UNIQUE NOT NULL\000a);\000a\000aCREATE TABLE IF NOT EXISTS libro (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    titulo VARCHAR(200) NOT NULL,\000a    autor VARCHAR(150) NOT NULL,\000a    disponible BOOLEAN DEFAULT TRUE\000a);\000a\000aCREATE TABLE IF NOT EXISTS prestamo (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    libro_id BIGINT NOT NULL,\000a    lector_id BIGINT NOT NULL,\000a    fecha_prestamo DATE NOT NULL,\000a    fecha_devolucion DATE NULL,\000a\000a    CONSTRAINT fk_prestamo_libro FOREIGN KEY (libro_id) REFERENCES libro(id),\000a    CONSTRAINT fk_prestamo_lector FOREIGN KEY (lector_id) REFERENCES lector(id)\000a);\000a\000aINSERT IGNORE INTO lector (id, nombre, correo) VALUES\000a(1, 'Ana López', 'ana@example.com'),\000a(2, 'Carlos Pérez', 'carlos@example.com');\000a\000aINSERT IGNORE INTO libro (id, titulo, autor, disponible) VALUES\000a(1, 'Cien años de soledad', 'Gabriel García Márquez', TRUE),\000a(2, 'El Principito', 'Antoine de Saint-Exupéry', TRUE);"; se esperaba "OR REPLACE, FORCE, VIEW, MATERIALIZED, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMPORARY, TABLE, SYNONYM, UNIQUE, SPATIAL, INDEX"
+Syntax error in SQL statement "CREATE [*]DATABASE IF NOT EXISTS biblioteca;\000aUSE biblioteca;\000a\000aCREATE TABLE IF NOT EXISTS lector (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    nombre VARCHAR(100) NOT NULL,\000a    correo VARCHAR(150) UNIQUE NOT NULL\000a);\000a\000aCREATE TABLE IF NOT EXISTS libro (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    titulo VARCHAR(200) NOT NULL,\000a    autor VARCHAR(150) NOT NULL,\000a    disponible BOOLEAN DEFAULT TRUE\000a);\000a\000aCREATE TABLE IF NOT EXISTS prestamo (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    libro_id BIGINT NOT NULL,\000a    lector_id BIGINT NOT NULL,\000a    fecha_prestamo DATE NOT NULL,\000a    fecha_devolucion DATE NULL,\000a\000a    CONSTRAINT fk_prestamo_libro FOREIGN KEY (libro_id) REFERENCES libro(id),\000a    CONSTRAINT fk_prestamo_lector FOREIGN KEY (lector_id) REFERENCES lector(id)\000a);\000a\000aINSERT IGNORE INTO lector (id, nombre, correo) VALUES\000a(1, 'Ana López', 'ana@example.com'),\000a(2, 'Carlos Pérez', 'carlos@example.com');\000a\000aINSERT IGNORE INTO libro (id, titulo, autor, disponible) VALUES\000a(1, 'Cien años de soledad', 'Gabriel García Márquez', TRUE),\000a(2, 'El Principito', 'Antoine de Saint-Exupéry', TRUE);"; expected "OR REPLACE, FORCE, VIEW, MATERIALIZED, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMPORARY, TABLE, SYNONYM, UNIQUE, SPATIAL, INDEX"; SQL statement:
+CREATE DATABASE IF NOT EXISTS biblioteca;
+USE biblioteca;
+
+CREATE TABLE IF NOT EXISTS lector (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    correo VARCHAR(150) UNIQUE NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS libro (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(200) NOT NULL,
+    autor VARCHAR(150) NOT NULL,
+    disponible BOOLEAN DEFAULT TRUE
+);
+
+CREATE TABLE IF NOT EXISTS prestamo (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    libro_id BIGINT NOT NULL,
+    lector_id BIGINT NOT NULL,
+    fecha_prestamo DATE NOT NULL,
+    fecha_devolucion DATE NULL,
+
+    CONSTRAINT fk_prestamo_libro FOREIGN KEY (libro_id) REFERENCES libro(id),
+    CONSTRAINT fk_prestamo_lector FOREIGN KEY (lector_id) REFERENCES lector(id)
+);
+
+INSERT IGNORE INTO lector (id, nombre, correo) VALUES
+(1, 'Ana López', 'ana@example.com'),
+(2, 'Carlos Pérez', 'carlos@example.com');
+
+INSERT IGNORE INTO libro (id, titulo, autor, disponible) VALUES
+(1, 'Cien años de soledad', 'Gabriel García Márquez', TRUE),
+(2, 'El Principito', 'Antoine de Saint-Exupéry', TRUE); [42001-230]
+2025-08-28 22:41:16.230277-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE [*]DATABASE IF NOT EXISTS biblioteca;\000aUSE biblioteca;\000a\000aCREATE TABLE IF NOT EXISTS lector (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    nombre VARCHAR(100) NOT NULL,\000a    correo VARCHAR(150) UNIQUE NOT NULL\000a);\000a\000aCREATE TABLE IF NOT EXISTS libro (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    titulo VARCHAR(200) NOT NULL,\000a    autor VARCHAR(150) NOT NULL,\000a    disponible BOOLEAN DEFAULT TRUE\000a);\000a\000aCREATE TABLE IF NOT EXISTS prestamo (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    libro_id BIGINT NOT NULL,\000a    lector_id BIGINT NOT NULL,\000a    fecha_prestamo DATE NOT NULL,\000a    fecha_devolucion DATE NULL,\000a\000a    CONSTRAINT fk_prestamo_libro FOREIGN KEY (libro_id) REFERENCES libro(id),\000a    CONSTRAINT fk_prestamo_lector FOREIGN KEY (lector_id) REFERENCES lector(id)\000a);\000a\000aINSERT IGNORE INTO lector (id, nombre, correo) VALUES\000a(1, 'Ana López', 'ana@example.com'),\000a(2, 'Carlos Pérez', 'carlos@example.com');\000a\000aINSERT IGNORE INTO libro (id, titulo, autor, disponible) VALUES\000a(1, 'Cien años de soledad', 'Gabriel García Márquez', TRUE),\000a(2, 'El Principito', 'Antoine de Saint-Exupéry', TRUE);"; se esperaba "OR REPLACE, FORCE, VIEW, MATERIALIZED, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMPORARY, TABLE, SYNONYM, UNIQUE, SPATIAL, INDEX"
+Syntax error in SQL statement "CREATE [*]DATABASE IF NOT EXISTS biblioteca;\000aUSE biblioteca;\000a\000aCREATE TABLE IF NOT EXISTS lector (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    nombre VARCHAR(100) NOT NULL,\000a    correo VARCHAR(150) UNIQUE NOT NULL\000a);\000a\000aCREATE TABLE IF NOT EXISTS libro (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    titulo VARCHAR(200) NOT NULL,\000a    autor VARCHAR(150) NOT NULL,\000a    disponible BOOLEAN DEFAULT TRUE\000a);\000a\000aCREATE TABLE IF NOT EXISTS prestamo (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    libro_id BIGINT NOT NULL,\000a    lector_id BIGINT NOT NULL,\000a    fecha_prestamo DATE NOT NULL,\000a    fecha_devolucion DATE NULL,\000a\000a    CONSTRAINT fk_prestamo_libro FOREIGN KEY (libro_id) REFERENCES libro(id),\000a    CONSTRAINT fk_prestamo_lector FOREIGN KEY (lector_id) REFERENCES lector(id)\000a);\000a\000aINSERT IGNORE INTO lector (id, nombre, correo) VALUES\000a(1, 'Ana López', 'ana@example.com'),\000a(2, 'Carlos Pérez', 'carlos@example.com');\000a\000aINSERT IGNORE INTO libro (id, titulo, autor, disponible) VALUES\000a(1, 'Cien años de soledad', 'Gabriel García Márquez', TRUE),\000a(2, 'El Principito', 'Antoine de Saint-Exupéry', TRUE);"; expected "OR REPLACE, FORCE, VIEW, MATERIALIZED, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMPORARY, TABLE, SYNONYM, UNIQUE, SPATIAL, INDEX"; SQL statement:
+CREATE DATABASE IF NOT EXISTS biblioteca;
+USE biblioteca;
+
+CREATE TABLE IF NOT EXISTS lector (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    correo VARCHAR(150) UNIQUE NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS libro (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(200) NOT NULL,
+    autor VARCHAR(150) NOT NULL,
+    disponible BOOLEAN DEFAULT TRUE
+);
+
+CREATE TABLE IF NOT EXISTS prestamo (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    libro_id BIGINT NOT NULL,
+    lector_id BIGINT NOT NULL,
+    fecha_prestamo DATE NOT NULL,
+    fecha_devolucion DATE NULL,
+
+    CONSTRAINT fk_prestamo_libro FOREIGN KEY (libro_id) REFERENCES libro(id),
+    CONSTRAINT fk_prestamo_lector FOREIGN KEY (lector_id) REFERENCES lector(id)
+);
+
+INSERT IGNORE INTO lector (id, nombre, correo) VALUES
+(1, 'Ana López', 'ana@example.com'),
+(2, 'Carlos Pérez', 'carlos@example.com');
+
+INSERT IGNORE INTO libro (id, titulo, autor, disponible) VALUES
+(1, 'Cien años de soledad', 'Gabriel García Márquez', TRUE),
+(2, 'El Principito', 'Antoine de Saint-Exupéry', TRUE); [42001-230]
+2025-08-28 22:42:15.893668-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE [*]DATABASE IF NOT EXISTS biblioteca;\000aUSE biblioteca;\000a\000aCREATE TABLE IF NOT EXISTS lector (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    nombre VARCHAR(100) NOT NULL,\000a    correo VARCHAR(150) UNIQUE NOT NULL\000a);\000a\000aCREATE TABLE IF NOT EXISTS libro (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    titulo VARCHAR(200) NOT NULL,\000a    autor VARCHAR(150) NOT NULL,\000a    disponible BOOLEAN DEFAULT TRUE\000a);\000a\000aCREATE TABLE IF NOT EXISTS prestamo (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    libro_id BIGINT NOT NULL,\000a    lector_id BIGINT NOT NULL,\000a    fecha_prestamo DATE NOT NULL,\000a    fecha_devolucion DATE NULL,\000a\000a    CONSTRAINT fk_prestamo_libro FOREIGN KEY (libro_id) REFERENCES libro(id),\000a    CONSTRAINT fk_prestamo_lector FOREIGN KEY (lector_id) REFERENCES lector(id)\000a);\000a\000aINSERT IGNORE INTO lector (id, nombre, correo) VALUES\000a(1, 'Ana López', 'ana@example.com'),\000a(2, 'Carlos Pérez', 'carlos@example.com');\000a\000aINSERT IGNORE INTO libro (id, titulo, autor, disponible) VALUES\000a(1, 'Cien años de soledad', 'Gabriel García Márquez', TRUE),\000a(2, 'El Principito', 'Antoine de Saint-Exupéry', TRUE);"; se esperaba "OR REPLACE, FORCE, VIEW, MATERIALIZED, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMPORARY, TABLE, SYNONYM, UNIQUE, SPATIAL, INDEX"
+Syntax error in SQL statement "CREATE [*]DATABASE IF NOT EXISTS biblioteca;\000aUSE biblioteca;\000a\000aCREATE TABLE IF NOT EXISTS lector (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    nombre VARCHAR(100) NOT NULL,\000a    correo VARCHAR(150) UNIQUE NOT NULL\000a);\000a\000aCREATE TABLE IF NOT EXISTS libro (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    titulo VARCHAR(200) NOT NULL,\000a    autor VARCHAR(150) NOT NULL,\000a    disponible BOOLEAN DEFAULT TRUE\000a);\000a\000aCREATE TABLE IF NOT EXISTS prestamo (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    libro_id BIGINT NOT NULL,\000a    lector_id BIGINT NOT NULL,\000a    fecha_prestamo DATE NOT NULL,\000a    fecha_devolucion DATE NULL,\000a\000a    CONSTRAINT fk_prestamo_libro FOREIGN KEY (libro_id) REFERENCES libro(id),\000a    CONSTRAINT fk_prestamo_lector FOREIGN KEY (lector_id) REFERENCES lector(id)\000a);\000a\000aINSERT IGNORE INTO lector (id, nombre, correo) VALUES\000a(1, 'Ana López', 'ana@example.com'),\000a(2, 'Carlos Pérez', 'carlos@example.com');\000a\000aINSERT IGNORE INTO libro (id, titulo, autor, disponible) VALUES\000a(1, 'Cien años de soledad', 'Gabriel García Márquez', TRUE),\000a(2, 'El Principito', 'Antoine de Saint-Exupéry', TRUE);"; expected "OR REPLACE, FORCE, VIEW, MATERIALIZED, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMPORARY, TABLE, SYNONYM, UNIQUE, SPATIAL, INDEX"; SQL statement:
+CREATE DATABASE IF NOT EXISTS biblioteca;
+USE biblioteca;
+
+CREATE TABLE IF NOT EXISTS lector (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    correo VARCHAR(150) UNIQUE NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS libro (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(200) NOT NULL,
+    autor VARCHAR(150) NOT NULL,
+    disponible BOOLEAN DEFAULT TRUE
+);
+
+CREATE TABLE IF NOT EXISTS prestamo (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    libro_id BIGINT NOT NULL,
+    lector_id BIGINT NOT NULL,
+    fecha_prestamo DATE NOT NULL,
+    fecha_devolucion DATE NULL,
+
+    CONSTRAINT fk_prestamo_libro FOREIGN KEY (libro_id) REFERENCES libro(id),
+    CONSTRAINT fk_prestamo_lector FOREIGN KEY (lector_id) REFERENCES lector(id)
+);
+
+INSERT IGNORE INTO lector (id, nombre, correo) VALUES
+(1, 'Ana López', 'ana@example.com'),
+(2, 'Carlos Pérez', 'carlos@example.com');
+
+INSERT IGNORE INTO libro (id, titulo, autor, disponible) VALUES
+(1, 'Cien años de soledad', 'Gabriel García Márquez', TRUE),
+(2, 'El Principito', 'Antoine de Saint-Exupéry', TRUE); [42001-230]
+2025-08-28 22:42:49.283134-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE [*]DATABASE IF NOT EXISTS biblioteca;\000aUSE biblioteca;\000a\000aCREATE TABLE IF NOT EXISTS lector (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    nombre VARCHAR(100) NOT NULL,\000a    correo VARCHAR(150) UNIQUE NOT NULL\000a);\000a\000aCREATE TABLE IF NOT EXISTS libro (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    titulo VARCHAR(200) NOT NULL,\000a    autor VARCHAR(150) NOT NULL,\000a    disponible BOOLEAN DEFAULT TRUE\000a);\000a\000aCREATE TABLE IF NOT EXISTS prestamo (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    libro_id BIGINT NOT NULL,\000a    lector_id BIGINT NOT NULL,\000a    fecha_prestamo DATE NOT NULL,\000a    fecha_devolucion DATE NULL,\000a\000a    CONSTRAINT fk_prestamo_libro FOREIGN KEY (libro_id) REFERENCES libro(id),\000a    CONSTRAINT fk_prestamo_lector FOREIGN KEY (lector_id) REFERENCES lector(id)\000a);\000a\000aINSERT IGNORE INTO lector (id, nombre, correo) VALUES\000a(1, 'Ana López', 'ana@example.com'),\000a(2, 'Carlos Pérez', 'carlos@example.com');\000a\000aINSERT IGNORE INTO libro (id, titulo, autor, disponible) VALUES\000a(1, 'Cien años de soledad', 'Gabriel García Márquez', TRUE),\000a(2, 'El Principito', 'Antoine de Saint-Exupéry', TRUE);"; se esperaba "OR REPLACE, FORCE, VIEW, MATERIALIZED, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMPORARY, TABLE, SYNONYM, UNIQUE, SPATIAL, INDEX"
+Syntax error in SQL statement "CREATE [*]DATABASE IF NOT EXISTS biblioteca;\000aUSE biblioteca;\000a\000aCREATE TABLE IF NOT EXISTS lector (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    nombre VARCHAR(100) NOT NULL,\000a    correo VARCHAR(150) UNIQUE NOT NULL\000a);\000a\000aCREATE TABLE IF NOT EXISTS libro (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    titulo VARCHAR(200) NOT NULL,\000a    autor VARCHAR(150) NOT NULL,\000a    disponible BOOLEAN DEFAULT TRUE\000a);\000a\000aCREATE TABLE IF NOT EXISTS prestamo (\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    libro_id BIGINT NOT NULL,\000a    lector_id BIGINT NOT NULL,\000a    fecha_prestamo DATE NOT NULL,\000a    fecha_devolucion DATE NULL,\000a\000a    CONSTRAINT fk_prestamo_libro FOREIGN KEY (libro_id) REFERENCES libro(id),\000a    CONSTRAINT fk_prestamo_lector FOREIGN KEY (lector_id) REFERENCES lector(id)\000a);\000a\000aINSERT IGNORE INTO lector (id, nombre, correo) VALUES\000a(1, 'Ana López', 'ana@example.com'),\000a(2, 'Carlos Pérez', 'carlos@example.com');\000a\000aINSERT IGNORE INTO libro (id, titulo, autor, disponible) VALUES\000a(1, 'Cien años de soledad', 'Gabriel García Márquez', TRUE),\000a(2, 'El Principito', 'Antoine de Saint-Exupéry', TRUE);"; expected "OR REPLACE, FORCE, VIEW, MATERIALIZED, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMPORARY, TABLE, SYNONYM, UNIQUE, SPATIAL, INDEX"; SQL statement:
+CREATE DATABASE IF NOT EXISTS biblioteca;
+USE biblioteca;
+
+CREATE TABLE IF NOT EXISTS lector (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    correo VARCHAR(150) UNIQUE NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS libro (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(200) NOT NULL,
+    autor VARCHAR(150) NOT NULL,
+    disponible BOOLEAN DEFAULT TRUE
+);
+
+CREATE TABLE IF NOT EXISTS prestamo (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    libro_id BIGINT NOT NULL,
+    lector_id BIGINT NOT NULL,
+    fecha_prestamo DATE NOT NULL,
+    fecha_devolucion DATE NULL,
+
+    CONSTRAINT fk_prestamo_libro FOREIGN KEY (libro_id) REFERENCES libro(id),
+    CONSTRAINT fk_prestamo_lector FOREIGN KEY (lector_id) REFERENCES lector(id)
+);
+
+INSERT IGNORE INTO lector (id, nombre, correo) VALUES
+(1, 'Ana López', 'ana@example.com'),
+(2, 'Carlos Pérez', 'carlos@example.com');
+
+INSERT IGNORE INTO libro (id, titulo, autor, disponible) VALUES
+(1, 'Cien años de soledad', 'Gabriel García Márquez', TRUE),
+(2, 'El Principito', 'Antoine de Saint-Exupéry', TRUE); [42001-230]

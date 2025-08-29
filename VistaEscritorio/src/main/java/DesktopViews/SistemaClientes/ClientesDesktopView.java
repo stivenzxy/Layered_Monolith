@@ -1,6 +1,6 @@
 package DesktopViews.SistemaClientes;
 
-import DTO.ClienteDTO;
+import DTO.Cliente.ClienteDTO;
 
 import java.util.List;
 

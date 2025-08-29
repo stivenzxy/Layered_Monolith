@@ -1,6 +1,6 @@
 package Biblioteca.DatabaseConfig;
 
-import Biblioteca.Utils.Configuracion;
+import Biblioteca.Utils.MysqlConfiguration;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -15,10 +15,10 @@ import java.util.stream.Collectors;
 public class MysqlConnectionManager {
     private static volatile MysqlConnectionManager instancia;
 
-    private static final String DRIVER = Configuracion.getPropiedad("DRIVER");
-    private static final String URL = Configuracion.getPropiedad("URL");
-    private static final String USUARIO = Configuracion.getPropiedad("USUARIO");
-    private static final String PASSWORD = Configuracion.getPropiedad("PASSWORD");
+    private static final String DRIVER = MysqlConfiguration.getPropiedad("DRIVER");
+    private static final String URL = MysqlConfiguration.getPropiedad("URL");
+    private static final String USUARIO = MysqlConfiguration.getPropiedad("USUARIO");
+    private static final String PASSWORD = MysqlConfiguration.getPropiedad("PASSWORD");
 
     private MysqlConnectionManager() {
         try {
@@ -49,13 +49,12 @@ public class MysqlConnectionManager {
     }
 
     public void inicializarBaseDeDatos() {
-        try (InputStream inputStream = MysqlConnectionManager.class.getClassLoader().getResourceAsStream("schema.sql")) {
+        try (InputStream inputStream = MysqlConnectionManager.class.getClassLoader().getResourceAsStream("MysqlSchema.sql")) {
 
             if (inputStream == null) {
-                throw new RuntimeException("No se pudo encontrar el archivo schema.sql en los recursos.");
+                throw new RuntimeException("No se pudo encontrar el archivo MysqlSchema.sql en los recursos.");
             }
 
-            // 1. Lee el archivo completo a un solo String (esto está bien).
             String scriptSql = new BufferedReader(
                     new InputStreamReader(inputStream, StandardCharsets.UTF_8))
                     .lines()
@@ -63,17 +62,14 @@ public class MysqlConnectionManager {
 
             try (Connection conn = this.getConnection(); Statement stmt = conn.createStatement()) {
 
-                // 2. Separa el script en sentencias individuales usando el punto y coma.
                 String[] statements = scriptSql.split(";");
 
-                // 3. Itera sobre cada sentencia y ejecútala.
                 for (String statement : statements) {
-                    // Ignora las líneas vacías que puedan resultar de la separación.
                     if (!statement.trim().isEmpty()) {
                         stmt.execute(statement);
                     }
                 }
-                System.out.println("Base de datos Mysql inicializada correctamente.");
+                //System.out.println("Base de datos Mysql inicializada correctamente.");
             }
 
         } catch (Exception e) {

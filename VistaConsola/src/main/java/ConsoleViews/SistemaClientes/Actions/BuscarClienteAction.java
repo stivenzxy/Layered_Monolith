@@ -2,7 +2,7 @@ package ConsoleViews.SistemaClientes.Actions;
 
 import ConsoleViews.MenuAction;
 import Controllers.SistemaClientesController;
-import DTO.ClienteDTO;
+import DTO.Cliente.ClienteDTO;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

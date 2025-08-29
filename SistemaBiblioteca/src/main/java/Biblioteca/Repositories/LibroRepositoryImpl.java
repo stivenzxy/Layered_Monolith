@@ -1,9 +1,8 @@
 package Biblioteca.Repositories;
 
 import Biblioteca.DAO.LibroDAO;
-import Biblioteca.Entities.Lector;
+
 import Biblioteca.Entities.Libro;
-import Biblioteca.Interfaces.LectorRepository;
 import Biblioteca.Interfaces.LibroRepository;
 
 import java.util.List;
@@ -19,11 +18,6 @@ public class LibroRepositoryImpl implements LibroRepository {
     @Override
     public String agregarLibro(Libro libro) {
         return libroDAO.agregarLibro(libro);
-    }
-
-    @Override
-    public boolean eliminarLibro(Long id) {
-        return libroDAO.eliminarLibro(id);
     }
 
     @Override
