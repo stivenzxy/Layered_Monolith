@@ -1,0 +1,5 @@
+Controllers\SistemaBiblioteca\PrestamoController.class
+Controllers\SistemaDocumentosController.class
+Controllers\SistemaBiblioteca\LibroController.class
+Controllers\SistemaClientesController.class
+Controllers\SistemaBiblioteca\LectorController.class

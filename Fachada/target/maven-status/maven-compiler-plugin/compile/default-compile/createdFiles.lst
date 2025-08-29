@@ -1,0 +1,5 @@
+Fachada\Interfaces\SistemaClientesFacade.class
+Fachada\Mappers\ClienteMapper.class
+Fachada\FachadaDocumentos.class
+Fachada\Interfaces\SistemaDocumentosFacade.class
+Fachada\FachadaClientes.class

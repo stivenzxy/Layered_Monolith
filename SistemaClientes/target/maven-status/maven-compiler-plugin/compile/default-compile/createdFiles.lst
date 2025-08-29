@@ -1,0 +1,8 @@
+DatabaseConfig\H2ConnectionManager.class
+Repositories\ClienteRepositoryImpl.class
+DatabaseConfig\DatabaseException.class
+Interfaces\ClienteRepository.class
+Entities\Cliente$Builder.class
+Entities\Cliente.class
+DAO\ClienteDAO.class
+Utils\H2Configuration.class

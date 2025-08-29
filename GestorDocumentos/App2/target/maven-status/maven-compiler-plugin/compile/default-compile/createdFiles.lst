@@ -1,0 +1,4 @@
+Fabrica\ProveedorBuilderDocumento.class
+Facade\GestorDocumentos.class
+Facade\DocumentoDirector.class
+Fabrica\ProveedorFabricaDocumento.class
