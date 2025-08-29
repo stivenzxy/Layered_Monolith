@@ -4,16 +4,16 @@ import DTO.ClienteDTO;
 import Entities.Cliente;
 import Fachada.Interfaces.SistemaClientesFacade;
 import Fachada.Mappers.ClienteMapper;
-import Interfaces.ClientesRepository;
+import Interfaces.ClienteRepository;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class FachadaClientes implements SistemaClientesFacade {
 
-    private final ClientesRepository repository;
+    private final ClienteRepository repository;
 
-    public FachadaClientes(ClientesRepository repository) {
+    public FachadaClientes(ClienteRepository repository) {
         this.repository = repository;
     }
 

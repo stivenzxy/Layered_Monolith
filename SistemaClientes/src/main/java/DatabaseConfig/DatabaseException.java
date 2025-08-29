@@ -1,4 +1,4 @@
-package Utils;
+package DatabaseConfig;
 
 public class DatabaseException extends RuntimeException {
     private final int statusCode;

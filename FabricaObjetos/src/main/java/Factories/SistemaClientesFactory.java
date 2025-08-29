@@ -5,12 +5,12 @@ import Controllers.SistemaClientesController;
 import DesktopViews.SistemaClientes.VistaPrincipalClientesEscritorio;
 import Fachada.FachadaClientes;
 import Fachada.Interfaces.SistemaClientesFacade;
-import Interfaces.ClientesRepository;
-import Repositories.ClientesRepositoryImpl;
+import Interfaces.ClienteRepository;
+import Repositories.ClienteRepositoryImpl;
 
 public class SistemaClientesFactory {
-    public static ClientesRepository createClientesRepository() {
-        return new ClientesRepositoryImpl();
+    public static ClienteRepository createClientesRepository() {
+        return new ClienteRepositoryImpl();
     }
 
     public static SistemaClientesFacade createClienteFacade() {

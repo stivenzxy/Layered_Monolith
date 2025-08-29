@@ -118,7 +118,7 @@ General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/Unillano
 	at DatabaseConfig.H2ConnectionManager.<init>(H2ConnectionManager.java:30)
 	at DatabaseConfig.H2ConnectionManager.obtenerInstancia(H2ConnectionManager.java:40)
 	at DAO.ClienteDAO.eliminar(ClienteDAO.java:71)
-	at Repositories.ClientesRepositoryImpl.eliminar(ClientesRepositoryImpl.java:40)
+	at Repositories.ClienteRepositoryImpl.eliminar(ClientesRepositoryImpl.java:40)
 	at Inicio.Main.main(Main.java:13)
 Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: D:/Unillanos Workspace/Arq-Soft-Labs/MonolitoPorCapas/SistemaClientes/database/clientes.mv.db [2.3.230/7]"
 General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/Unillanos Workspace/Arq-Soft-Labs/MonolitoPorCapas/SistemaClientes/database/clientes.mv.db [2.3.230/7]" [50000-230]
@@ -157,7 +157,7 @@ General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/Unillano
 	at DatabaseConfig.H2ConnectionManager.<init>(H2ConnectionManager.java:30)
 	at DatabaseConfig.H2ConnectionManager.obtenerInstancia(H2ConnectionManager.java:40)
 	at DAO.ClienteDAO.eliminar(ClienteDAO.java:71)
-	at Repositories.ClientesRepositoryImpl.eliminar(ClientesRepositoryImpl.java:40)
+	at Repositories.ClienteRepositoryImpl.eliminar(ClientesRepositoryImpl.java:40)
 	at Inicio.Main.main(Main.java:13)
 Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: D:/Unillanos Workspace/Arq-Soft-Labs/MonolitoPorCapas/SistemaClientes/database/clientes.mv.db [2.3.230/7]"
 General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/Unillanos Workspace/Arq-Soft-Labs/MonolitoPorCapas/SistemaClientes/database/clientes.mv.db [2.3.230/7]" [50000-230]

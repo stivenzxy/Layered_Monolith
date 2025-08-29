@@ -1,7 +1,6 @@
 package DatabaseConfig;
 
 import Utils.Configuracion;
-import Utils.DatabaseException;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

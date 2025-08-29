@@ -5,7 +5,7 @@ import Entities.Cliente;
 import java.util.List;
 import java.util.Optional;
 
-public interface ClientesRepository {
+public interface ClienteRepository {
     String crear(Cliente cliente);
     Optional<Cliente> obtenerPorId(Long id);
     List<Cliente> obtenerTodos();
